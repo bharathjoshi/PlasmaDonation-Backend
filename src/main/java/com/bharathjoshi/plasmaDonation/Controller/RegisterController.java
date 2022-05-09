@@ -18,9 +18,8 @@ public class RegisterController {
     public RegisterController(RegisterService regService){
         this.regService = regService;
     }
-    @PostMapping(path="/add", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path="/addUser", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Response addUserDate(@RequestBody primeUser prmUser){
-        System.out.println(prmUser.getFirstName());
         boolean result = regService.registerUser(prmUser);
         if(result){
             return Response.ok().build();
